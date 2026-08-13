@@ -1,5 +1,5 @@
 /* ==========================================================================
-   MAIN JAVASCRIPT - Ristorante Su Liangcheng Salerno (Optimized Performance)
+   MAIN JAVASCRIPT - Ristorante Su Liangcheng Salerno (Direct WhatsApp Engine)
    ========================================================================== */
 
 // Dish Slides Data using Optimized WebP Restaurant Photography
@@ -103,7 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroParticles();
   initDishCarousel();
   initLazyMap();
-  initWhatsAppModal();
 });
 
 /* ==========================================================================
@@ -219,7 +218,7 @@ function initOpeningStatus() {
 }
 
 /* ==========================================================================
-   3. HERO CANVAS PARTICLES (DISBALED ON MOBILE FOR 0 CPU OVERHEAD)
+   3. HERO CANVAS PARTICLES (DISABLED ON MOBILE FOR 0 CPU OVERHEAD)
    ========================================================================== */
 function initHeroParticles() {
   const canvas = document.getElementById('hero-canvas');
@@ -282,7 +281,7 @@ function initHeroParticles() {
 }
 
 /* ==========================================================================
-   4. ANIMATED DISH CAROUSEL (GPU-ACCELERATED TRANSFORMS, 0 FORCED REFLOWS)
+   4. ANIMATED DISH CAROUSEL (DIRECT WHATSAPP LINKING)
    ========================================================================== */
 function initDishCarousel() {
   const carouselImage = document.getElementById('carousel-image');
@@ -336,7 +335,12 @@ function initDishCarousel() {
         featuresUl.appendChild(li);
       });
 
-      orderCtaBtn.setAttribute('data-dish', `${slide.title} (${slide.code} - ${slide.price})`);
+      // Direct WhatsApp wa.me Link with Pre-filled Dish Order Message
+      const message = `Ciao Ristorante Su! 👋 Vorrei ordinare: ${slide.title} (${slide.code} - ${slide.price})`;
+      orderCtaBtn.href = `https://wa.me/393271024489?text=${encodeURIComponent(message)}`;
+      orderCtaBtn.target = '_blank';
+      orderCtaBtn.rel = 'noopener noreferrer';
+
       slideCounter.textContent = `${index + 1} / ${DISH_SLIDES.length}`;
 
       const dots = dotsContainer.querySelectorAll('.dot-btn');
@@ -429,75 +433,5 @@ function initLazyMap() {
 
   if (loadBtn) {
     loadBtn.addEventListener('click', loadIframe);
-  }
-}
-
-/* ==========================================================================
-   6. INTERACTIVE WHATSAPP MODAL
-   ========================================================================== */
-function initWhatsAppModal() {
-  const modalOverlay = document.getElementById('whatsapp-modal');
-  const modalClose = document.getElementById('modal-close');
-  const modalForm = document.getElementById('whatsapp-form');
-  const modalTypeSelect = document.getElementById('modal-type');
-  const guestsGroup = document.getElementById('guests-group');
-
-  if (!modalOverlay) return;
-
-  document.addEventListener('click', (e) => {
-    const btn = e.target.closest('.trigger-whatsapp-modal');
-    if (btn) {
-      e.preventDefault();
-      const predefinedDish = btn.getAttribute('data-dish');
-      if (predefinedDish) {
-        document.getElementById('modal-notes').value = `Vorrei ordinare: ${predefinedDish}`;
-      }
-      modalOverlay.classList.add('active');
-    }
-  });
-
-  if (modalClose) {
-    modalClose.addEventListener('click', () => {
-      modalOverlay.classList.remove('active');
-    });
-  }
-
-  modalOverlay.addEventListener('click', (e) => {
-    if (e.target === modalOverlay) {
-      modalOverlay.classList.remove('active');
-    }
-  });
-
-  if (modalTypeSelect) {
-    modalTypeSelect.addEventListener('change', () => {
-      guestsGroup.style.display = modalTypeSelect.value === 'prenotazione' ? 'block' : 'none';
-    });
-  }
-
-  if (modalForm) {
-    modalForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const type = document.getElementById('modal-type').value;
-      const name = document.getElementById('modal-name').value;
-      const date = document.getElementById('modal-date').value;
-      const time = document.getElementById('modal-time').value;
-      const guests = document.getElementById('modal-guests').value;
-      const notes = document.getElementById('modal-notes').value;
-
-      let message = `Ciao Ristorante Su! 👋\n`;
-      if (type === 'prenotazione') {
-        message += `Vorrei prenotare un tavolo:\n- Nome: ${name}\n- Data: ${date}\n- Ora: ${time}\n- Persone: ${guests}`;
-      } else {
-        message += `Vorrei effettuare un ordine d'asporto / domicilio:\n- Nome: ${name}\n- Data indicativa: ${date} ore ${time}`;
-      }
-
-      if (notes) {
-        message += `\n- Dettagli/Note: ${notes}`;
-      }
-
-      const encodedMsg = encodeURIComponent(message);
-      window.open(`https://wa.me/393271024489?text=${encodedMsg}`, '_blank', 'noopener,noreferrer');
-      modalOverlay.classList.remove('active');
-    });
   }
 }
