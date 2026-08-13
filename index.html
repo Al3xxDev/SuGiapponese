@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- HIDE FROM SEARCH ENGINES (TEST WEBSITE) -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="bingbot" content="noindex, nofollow">
+
+  <!-- PERFORMANCE & CDN PRECONNECT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  <!-- LCP WEBP IMAGE PRELOAD FOR LIGHTHOUSE 100 PERFORMANCE -->
+  <link rel="preload" as="image" href="assets/hero.webp" type="image/webp" fetchpriority="high">
+
+  <!-- ASYNCHRONOUS NON-BLOCKING FONTS & ICONS (0ms RENDER BLOCKING) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+  </noscript>
+
+  <title>Ristorante Su Liangcheng Salerno | Cucina Cinese & Giapponese alla Carta</title>
+  <meta name="description" content="Ristorante Su Liangcheng a Salerno: eccellenza della cucina cinese e giapponese alla carta. Specialità maki cotti, dim sum artigianali, bao zi, udon e box d'asporto personalizzate. Ordini e prenotazioni via WhatsApp 3271024489.">
+  <meta name="keywords" content="Ristorante Su Salerno, sushi salerno, maki cotti salerno, dim sum, bao zi, deliveroo salerno, glovo salerno, via loria 17 salerno">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Deferred Main JavaScript -->
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       SUPER CLEAN HEADER WITH LOGO AND BRAND NAME
+       ========================================================================== -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="brand-logo" aria-label="Ristorante Su Liangcheng Salerno Home">
+        <picture>
+          <source srcset="assets/logo.webp" type="image/webp">
+          <img src="assets/logo.jpg" alt="Logo Ristorante Su Liangcheng Salerno" width="48" height="48" decoding="async">
+        </picture>
+        <div class="brand-name">
+          <span class="brand-title">Ristorante Su</span>
+          <span class="brand-subtitle">Cucina Cinese - Giapponese</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#piatti-migliori" class="nav-link">Le Nostre Specialità</a></li>
+        <li><a href="#box-speciali" class="nav-link">Box & Asporto</a></li>
+        <li><a href="#menu-pdf" class="nav-link">Menù PDF</a></li>
+        <li><a href="#info-orari" class="nav-link">Info & Orari</a></li>
+        <li class="mobile-menu-cta">
+          <a href="#" class="btn btn-gold trigger-whatsapp-modal" style="width: 100%;">
+            <i class="ri-whatsapp-line"></i> Prenota / Ordina su WhatsApp
+          </a>
+        </li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#" class="btn btn-gold trigger-whatsapp-modal">
+          <i class="ri-whatsapp-line"></i> Prenota / Ordina
+        </a>
+        <button class="mobile-toggle" aria-label="Apri Menu Navigazione">
+          <i class="ri-menu-3-line"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       HERO SECTION WITH REAL-TIME OPEN/CLOSED STATUS WIDGET
+       ========================================================================== -->
+  <section id="home" class="hero">
+    <div class="hero-bg">
+      <picture>
+        <source srcset="assets/hero.webp" type="image/webp">
+        <img src="assets/hero.webp" alt="Specialità Ristorante Su Liangcheng Salerno" width="680" height="383" fetchpriority="high" decoding="sync">
+      </picture>
+    </div>
+    <div class="hero-overlay"></div>
+    <canvas id="hero-canvas"></canvas>
+
+    <div class="container hero-content">
+      
+      <!-- Hero Logo Emblem Badge & Live Open/Closed Status Chip -->
+      <div class="hero-logo-wrapper">
+        <picture>
+          <source srcset="assets/logo.webp" type="image/webp">
+          <img src="assets/logo.jpg" alt="Logo Su:shi Cucina Cinese Giapponese" class="hero-logo-img" width="75" height="75" decoding="async">
+        </picture>
+        <div class="badge-luxury">
+          <span class="dot"></span> Cucina alla Carta • Esperienza Gourmet
+        </div>
+      </div>
+
+      <!-- Real-Time Open/Closed Live Status Badge -->
+      <div>
+        <div id="hero-opening-status" class="hero-status-box open">
+          <span class="status-dot"></span> <span class="status-text">Verifico stato orari...</span>
+        </div>
+      </div>
+
+      <h1 class="hero-title">
+        L'Arte della Cucina <br>
+        <span class="text-gold">Cinese & Giapponese</span> a Salerno
+      </h1>
+      <p class="hero-description">
+        Sapore autentico, ingredienti freschissimi e preparazioni artigianali espresse: dai maki cotti flambé ai dim sum al vapore e ai primi saltati al wok.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#piatti-migliori" class="btn btn-gold">
+          <i class="ri-sparkles-line"></i> Scopri le Nostre Specialità
+        </a>
+        <a href="https://maipdf.com/file/a68a5ff1253869@pdf" target="_blank" rel="noopener noreferrer" class="btn btn-glass">
+          <i class="ri-file-pdf-fill"></i> Menù Completo (PDF)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       LUXURY CULINARY PHILOSOPHY CARD
+       ========================================================================== -->
+  <section class="philosophy-section">
+    <div class="container">
+      <div class="philosophy-card">
+        <div class="philosophy-icon">
+          <i class="ri-restaurant-2-line"></i>
+        </div>
+        <div class="philosophy-text">
+          <span class="philosophy-badge"><i class="ri-shield-star-fill"></i> Cucina Esclusiva alla Carta • NO All You Can Eat</span>
+          <h3 class="philosophy-title">La Nostra Filosofia Gourmet</h3>
+          <p class="philosophy-desc">
+            Per garantire la massima freschezza del pesce, tagli perfetti e preparazioni artigianali espresse al momento, <strong>non adottiamo la formula All You Can Eat</strong>. Ogni piatto è curato nei minimi dettagli per offrirti un'esperienza di gusto autentica.
+          </p>
+        </div>
+        <a href="https://maipdf.com/file/a68a5ff1253869@pdf" target="_blank" rel="noopener noreferrer" class="btn btn-gold philosophy-btn">
+          <i class="ri-file-pdf-fill"></i> Menù Completo PDF
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION: "I PIATTI MIGLIORI" - ANIMATED LUXURY CAROUSEL (Real Photos)
+       ========================================================================== -->
+  <section id="piatti-migliori" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Vetrina Esclusiva</span>
+        <h2 class="section-title">Le Nostre <span class="text-gold">Specialità Gourmet</span></h2>
+        <p class="section-desc">Esplora le foto reali dei nostri piatti: ad ogni foto corrisponde in automatico il relativo codice menù, prezzo e descrizione.</p>
+      </div>
+
+      <!-- Animated Carousel Container -->
+      <div class="carousel-wrapper">
+        <div class="carousel-grid">
+          
+          <!-- Left Column: Image Showcase -->
+          <div class="carousel-media">
+            <span id="slide-counter" class="carousel-slide-counter">1 / 7</span>
+            <button id="carousel-prev-btn" class="carousel-nav-btn carousel-prev" aria-label="Diapositiva precedente">
+              <i class="ri-arrow-left-s-line"></i>
+            </button>
+            <button id="carousel-next-btn" class="carousel-nav-btn carousel-next" aria-label="Diapositiva successiva">
+              <i class="ri-arrow-right-s-line"></i>
+            </button>
+            
+            <img id="carousel-image" class="carousel-slide-img" src="assets/uramaki.webp" alt="Specialità Ristorante Su" width="800" height="520" loading="lazy" decoding="async">
+            <div class="carousel-media-overlay"></div>
+
+            <div class="carousel-progress-bar">
+              <div id="progress-fill" class="carousel-progress-fill"></div>
+            </div>
+          </div>
+
+          <!-- Right Column: Animated Text Details -->
+          <div class="carousel-details">
+            <div id="carousel-text-box" class="carousel-text-box">
+              
+              <div class="slide-badges">
+                <span id="slide-tag" class="slide-tag">Maki Cotto</span>
+                <span id="slide-code" class="slide-code">Cod. MU16</span>
+              </div>
+
+              <div class="slide-title-header">
+                <h3 id="slide-title" class="slide-title">Salmone Cotto & Avocado Roll</h3>
+                <span id="slide-price" class="slide-price">€ 7,50</span>
+              </div>
+
+              <p id="slide-description" class="slide-description">
+                Uramaki cotto con salmone al vapore, avocado cremoso, maionese morbida e guarnizione di dorata cipolla croccante.
+              </p>
+
+              <ul id="slide-features" class="slide-features-list">
+                <li><i class="ri-checkbox-circle-fill"></i> 8 Pezzi (Maki Cotto)</li>
+                <li><i class="ri-checkbox-circle-fill"></i> Pesce cotto di primissima scelta</li>
+                <li><i class="ri-checkbox-circle-fill"></i> Cipolla fritta croccante</li>
+              </ul>
+
+              <div class="carousel-dots" id="carousel-dots"></div>
+
+              <a href="#" id="carousel-order-btn" class="btn btn-whatsapp trigger-whatsapp-modal" data-dish="Salmone Cotto & Avocado Roll (€7,50)" style="width: 100%;">
+                <i class="ri-whatsapp-line"></i> Ordina questo Piatto su WhatsApp
+              </a>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION: BOX SPECIALI & TAKEAWAY
+       ========================================================================== -->
+  <section id="box-speciali" class="section" style="background: rgba(17, 19, 28, 0.4);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Asporto & Delivery</span>
+        <h2 class="section-title">Componi la tua <span class="text-gold">Box Personalizzata</span></h2>
+        <p class="section-desc">Esempi di combinazioni d'asporto particolarmente apprezzate dai nostri clienti.</p>
+      </div>
+
+      <!-- Specific Clarification Notice Card -->
+      <div class="box-notice-card">
+        <div class="box-notice-icon">
+          <i class="ri-information-line"></i>
+        </div>
+        <div class="box-notice-text">
+          <p><strong>Nota sulle Box d'Asporto:</strong> Le combinazioni riportate qui sotto sono solo due esempi di partenza! Le nostre box non si limitano a queste: puoi personalizzare qualsiasi combinazione di maki, nigiri, primi o piatti cinesi sia direttamente su WhatsApp (+39 3271024489) che consultando il Menù PDF Completo.</p>
+        </div>
+      </div>
+
+      <div class="box-grid">
+        <!-- Box 2 Maki -->
+        <div class="box-card">
+          <h3 class="box-title">Box 2 Maki</h3>
+          <div class="box-price">€ 11,00</div>
+          <ul class="box-features">
+            <li><i class="ri-checkbox-circle-fill"></i> 16 pezzi totali di maki</li>
+            <li><i class="ri-checkbox-circle-fill"></i> Scegli 2 rotoli a tua preferenza</li>
+            <li><i class="ri-checkbox-circle-fill"></i> Salse e condimenti inclusi</li>
+          </ul>
+          <a href="#" class="btn btn-gold trigger-whatsapp-modal" data-dish="Box 2 Maki (€11,00)" style="width: 100%;">
+            <i class="ri-whatsapp-line"></i> Ordina Box 2 Maki
+          </a>
+        </div>
+
+        <!-- Box 4 Maki -->
+        <div class="box-card featured">
+          <span class="box-badge">Esempio Consigliato</span>
+          <h3 class="box-title">Box 4 Maki</h3>
+          <div class="box-price">€ 20,00</div>
+          <ul class="box-features">
+            <li><i class="ri-checkbox-circle-fill"></i> 32 pezzi totali di maki d'eccellenza</li>
+            <li><i class="ri-checkbox-circle-fill"></i> Scegli 4 rotoli tra maki cotti e speciali</li>
+            <li><i class="ri-checkbox-circle-fill"></i> Kit completo di bacchette e salse</li>
+          </ul>
+          <a href="#" class="btn btn-gold trigger-whatsapp-modal" data-dish="Box 4 Maki (€20,00)" style="width: 100%;">
+            <i class="ri-whatsapp-line"></i> Ordina Box 4 Maki
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION: MENÙ COMPLETO PDF
+       ========================================================================== -->
+  <section id="menu-pdf" class="section">
+    <div class="container">
+      <div class="pdf-menu-banner">
+        <div class="pdf-content">
+          <h2>Consulta il <span class="text-gold">Menù Completo in PDF</span></h2>
+          <p>Trovi l'elenco integrale dei nostri antipasti, primi, secondi, nigiri, sashimi, hosomaki, uramaki, temaki e dolci orientali.</p>
+          <div class="pdf-actions">
+            <a href="https://maipdf.com/file/a68a5ff1253869@pdf" target="_blank" rel="noopener noreferrer" class="btn btn-gold">
+              <i class="ri-file-pdf-fill"></i> Apri il Menù Completo (PDF)
+            </a>
+            <a href="#" class="btn btn-glass trigger-whatsapp-modal">
+              <i class="ri-whatsapp-line"></i> Chiedi Informazioni su WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION: DOVE SIAMO & CONTATTI
+       ========================================================================== -->
+  <section id="info-orari" class="section scenic-info-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Posizione & Prenotazioni</span>
+        <h2 class="section-title">Dove Siamo & <span class="text-gold">Contatti</span></h2>
+        <p class="section-desc">Vieni a trovarci nel cuore di Salerno o ricevi le nostre prelibatezze direttamente a casa tua.</p>
+      </div>
+
+      <!-- Scenic Highlights Chips -->
+      <div class="scenic-highlights">
+        <div class="scenic-chip"><i class="ri-map-pin-fill text-gold"></i> Via V. Loria 17, Salerno</div>
+        <div class="scenic-chip"><i class="ri-whatsapp-fill text-gold"></i> WhatsApp: 3271024489</div>
+        <div class="scenic-chip"><i class="ri-restaurant-2-fill text-gold"></i> Cucina alla Carta</div>
+        <div class="scenic-chip"><i class="ri-calendar-event-fill text-gold"></i> Mar-Dom 12-15 / 18-23:30</div>
+      </div>
+
+      <div class="scenic-grid">
+
+        <!-- Card 1: Orari & Stato in Tempo Reale -->
+        <div class="scenic-card orari-card">
+          <div class="card-glass-header">
+            <div class="card-icon-box">
+              <i class="ri-time-fill"></i>
+            </div>
+            <div>
+              <h3>Orari di Apertura</h3>
+              <p class="card-subtitle">Cucina Espressa Pronta al Momento</p>
+            </div>
+          </div>
+
+          <div id="opening-status" class="status-pill open">
+            <span class="status-dot"></span> Verifico stato in corso...
+          </div>
+
+          <div class="hours-table">
+            <div class="hours-row highlight-closed">
+              <span class="day-label"><i class="ri-close-circle-fill text-red"></i> Lunedì</span>
+              <span class="time-badge closed-badge">Chiuso per Riposo</span>
+            </div>
+            <div class="hours-row">
+              <span class="day-label"><i class="ri-sun-fill text-gold"></i> Mar - Dom (Pranzo)</span>
+              <span class="time-badge">12:00 - 15:00</span>
+            </div>
+            <div class="hours-row">
+              <span class="day-label"><i class="ri-moon-fill text-gold"></i> Mar - Dom (Cena)</span>
+              <span class="time-badge">18:00 - 23:30</span>
+            </div>
+          </div>
+
+          <div class="delivery-scenic-box">
+            <h4>Ordina a Domicilio</h4>
+            <p>Consegna rapida tramite i nostri partner ufficiali:</p>
+            <div class="delivery-grid">
+              <a href="https://deliveroo.it/it/menu/napoli/salerno/su-ristorante-cinese-giapponese" target="_blank" rel="noopener noreferrer" class="delivery-btn btn-deliveroo">
+                <i class="ri-motorbike-fill"></i> Deliveroo
+              </a>
+              <a href="https://glovoapp.com/it/it/salerno/stores/su-ristorante-cinese-giapponese-qsr" target="_blank" rel="noopener noreferrer" class="delivery-btn btn-glovo">
+                <i class="ri-shopping-bag-3-fill"></i> Glovo
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Mappa Interattiva Facade Loader (0 Cookies & 0ms Main Thread Blocking) -->
+        <div class="scenic-card map-card">
+          <div class="card-glass-header">
+            <div class="card-icon-box">
+              <i class="ri-map-pin-2-fill"></i>
+            </div>
+            <div>
+              <h3>La Nostra Sede</h3>
+              <p class="card-subtitle">Salerno (SA) • Via V. Loria 17</p>
+            </div>
+          </div>
+
+          <div class="scenic-map-wrapper" id="scenic-map-wrapper">
+            <div class="map-placeholder" id="map-placeholder">
+              <div class="map-placeholder-content">
+                <i class="ri-map-pin-2-fill text-gold" style="font-size: 2.4rem; margin-bottom: 0.4rem; display: block;"></i>
+                <strong>Ristorante Su Liangcheng</strong>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0.2rem 0 1rem 0;">Via V. Loria 17, 84129 Salerno</p>
+                <button type="button" id="load-map-btn" class="btn btn-gold" style="padding: 0.45rem 1.15rem; font-size: 0.85rem;">
+                  <i class="ri-map-2-line"></i> Attiva Mappa Interattiva
+                </button>
+              </div>
+            </div>
+            <div class="map-overlay-badge">
+              <div class="badge-content">
+                <strong>Ristorante Su Liangcheng</strong>
+                <span>Via V. Loria 17, 84129 Salerno</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="scenic-actions">
+            <a href="https://maps.app.goo.gl/9m4h2stRJN13G2Bb6" target="_blank" rel="noopener noreferrer" class="btn btn-gold flex-1">
+              <i class="ri-navigation-line"></i> Indicazioni Stradali
+            </a>
+            <a href="#" class="btn btn-whatsapp trigger-whatsapp-modal flex-1">
+              <i class="ri-whatsapp-line"></i> Contatta Ristorante
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="brand-logo">
+            <picture>
+              <source srcset="assets/logo.webp" type="image/webp">
+              <img src="assets/logo.jpg" alt="Logo Su Liangcheng" width="48" height="48" loading="lazy" decoding="async">
+            </picture>
+            <div class="brand-name">
+              <span class="brand-title">Ristorante Su</span>
+              <span class="brand-subtitle">Cucina Cinese - Giapponese</span>
+            </div>
+          </a>
+          <p>Cucina cinese e giapponese alla carta a Salerno, preparata al momento con ingredienti di prima scelta.</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/ristorante_su/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram Ristorante Su">
+              <i class="ri-instagram-line"></i>
+            </a>
+            <a href="https://www.facebook.com/ristorantecinesesu/?locale=it_IT" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook Ristorante Su">
+              <i class="ri-facebook-fill"></i>
+            </a>
+            <a href="https://wa.me/393271024489" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="WhatsApp Ristorante Su">
+              <i class="ri-whatsapp-line"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigazione</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#piatti-migliori">Le Nostre Specialità</a></li>
+            <li><a href="#box-speciali">Box Asporto</a></li>
+            <li><a href="#menu-pdf">Menù Completo PDF</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Ordini & Delivery</h4>
+          <ul class="footer-links">
+            <li><a href="https://wa.me/393271024489" target="_blank" rel="noopener noreferrer">WhatsApp Direct</a></li>
+            <li><a href="https://deliveroo.it/it/menu/napoli/salerno/su-ristorante-cinese-giapponese" target="_blank" rel="noopener noreferrer">Deliveroo Salerno</a></li>
+            <li><a href="https://glovoapp.com/it/it/salerno/stores/su-ristorante-cinese-giapponese-qsr" target="_blank" rel="noopener noreferrer">Glovo Salerno</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contatti</h4>
+          <ul class="footer-links">
+            <li><i class="ri-map-pin-line text-gold"></i> Via V. Loria 17, Salerno</li>
+            <li><i class="ri-whatsapp-line text-gold"></i> 3271024489</li>
+            <li><i class="ri-time-line text-gold"></i> Mar-Dom 12-15 / 18-23:30</li>
+            <li><i class="ri-close-circle-line text-red"></i> Lunedì Chiuso</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Ristorante Su Liangcheng Salerno. Cucina Cinese & Giapponese alla Carta.</p>
+        <p>Ottimizzato per dispositivi mobile e tablet.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MOBILE STICKY ACTION BAR
+       ========================================================================== -->
+  <div class="mobile-action-bar">
+    <div class="mobile-actions-grid">
+      <a href="#" class="mobile-action-btn whatsapp-highlight trigger-whatsapp-modal">
+        <i class="ri-whatsapp-line"></i>
+        <span>WhatsApp</span>
+      </a>
+      <a href="https://maipdf.com/file/a68a5ff1253869@pdf" target="_blank" rel="noopener noreferrer" class="mobile-action-btn">
+        <i class="ri-file-pdf-line"></i>
+        <span>Menù PDF</span>
+      </a>
+      <a href="https://maps.app.goo.gl/9m4h2stRJN13G2Bb6" target="_blank" rel="noopener noreferrer" class="mobile-action-btn">
+        <i class="ri-map-pin-line"></i>
+        <span>Mappa</span>
+      </a>
+      <a href="#info-orari" class="mobile-action-btn">
+        <i class="ri-riding-line"></i>
+        <span>Delivery</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       WHATSAPP INTERACTIVE MODAL
+       ========================================================================== -->
+  <div id="whatsapp-modal" class="modal-overlay">
+    <div class="modal-card">
+      <button id="modal-close" class="modal-close" aria-label="Chiudi Finestra">&times;</button>
+      <div class="modal-header">
+        <h3>Ordina o Prenota su <span class="text-gold">WhatsApp</span></h3>
+        <p>Invia un messaggio diretto per prenotare un tavolo o ordinare d'asporto (+39 3271024489).</p>
+      </div>
+      <form id="whatsapp-form">
+        <div class="form-group">
+          <label for="modal-type">Tipo di Richiesta</label>
+          <select id="modal-type" class="form-control">
+            <option value="prenotazione">🪑 Prenotazione Tavolo</option>
+            <option value="asporto">🥡 Ordine D'Asporto / Consegna</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="modal-name">Nome e Cognome</label>
+          <input type="text" id="modal-name" class="form-control" placeholder="Es. Mario Rossi" required>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem;">
+          <div class="form-group">
+            <label for="modal-date">Data</label>
+            <input type="date" id="modal-date" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="modal-time">Ora Indicativa</label>
+            <input type="time" id="modal-time" class="form-control" required>
+          </div>
+        </div>
+        <div class="form-group" id="guests-group">
+          <label for="modal-guests">Numero di Persone</label>
+          <input type="number" id="modal-guests" class="form-control" value="2" min="1" max="20">
+        </div>
+        <div class="form-group">
+          <label for="modal-notes">Piatti o Note Aggiuntive</label>
+          <textarea id="modal-notes" class="form-control" rows="3" placeholder="Es. Vorrei ordinare Sake Maki alla Fiamma e Udon saltati..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-whatsapp" style="width: 100%; font-size: 0.95rem; padding: 0.85rem;">
+          <i class="ri-whatsapp-fill"></i> Invia Messaggio WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
