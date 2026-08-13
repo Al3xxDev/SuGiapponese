@@ -1066,6 +1066,8 @@ h1, h2, h3, h4, h5 {
   border: 1px solid var(--border-glass);
   border-radius: 16px;
   padding: 1.35rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .delivery-scenic-box h4 {
@@ -1087,22 +1089,26 @@ h1, h2, h3, h4, h5 {
   grid-template-columns: 1fr 1fr;
   gap: 0.85rem;
   margin-top: 0.85rem;
+  width: 100%;
 }
 
 .delivery-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.6rem;
-  padding: 0.85rem 1.1rem;
+  gap: 0.5rem;
+  padding: 0.85rem 0.75rem;
   border-radius: 12px;
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   transition: var(--tr-smooth);
   background: rgba(17, 19, 28, 0.9);
   border: 1px solid var(--border-glass);
   color: var(--text-main);
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
 }
 
 .btn-deliveroo {
@@ -1129,7 +1135,7 @@ h1, h2, h3, h4, h5 {
   transform: translateY(-2px);
 }
 
-/* MAP & MAP PLACEHOLDER FOR LIGHTHOUSE 100 PERFORMANCE */
+/* MAP & MAP PLACEHOLDER FOR LIGHTHOUSE PERFORMANCE */
 .scenic-map-wrapper {
   position: relative;
   border-radius: 18px;
@@ -1139,23 +1145,6 @@ h1, h2, h3, h4, h5 {
   margin-bottom: 1.5rem;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
   background: #0d0e17;
-}
-
-.map-placeholder {
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 50% 50%, #161826 0%, #0d0e17 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 1.5rem;
-}
-
-.map-placeholder-content strong {
-  font-size: 1.1rem;
-  color: var(--text-main);
-  display: block;
 }
 
 .map-overlay-badge {
@@ -1277,7 +1266,7 @@ h1, h2, h3, h4, h5 {
   gap: 1rem;
 }
 
-/* MOBILE STICKY ACTION BAR & MODAL */
+/* MOBILE STICKY ACTION BAR */
 .mobile-action-bar {
   display: none;
   position: fixed;
@@ -1317,94 +1306,6 @@ h1, h2, h3, h4, h5 {
 
 .mobile-action-btn.whatsapp-highlight {
   color: #25d366;
-}
-
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.82);
-  backdrop-filter: blur(8px);
-  z-index: 2000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: var(--tr-smooth);
-}
-
-.modal-overlay.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.modal-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-gold-glow);
-  border-radius: 18px;
-  width: 90%;
-  max-width: 460px;
-  padding: 2rem 1.6rem;
-  position: relative;
-  transform: translateY(20px);
-  transition: var(--tr-smooth);
-}
-
-.modal-overlay.active .modal-card {
-  transform: translateY(0);
-}
-
-.modal-close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: none;
-  border: none;
-  color: var(--text-muted);
-  font-size: 1.4rem;
-  cursor: pointer;
-}
-
-.modal-header h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.35rem;
-}
-
-.modal-header p {
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  margin-bottom: 1.2rem;
-}
-
-.form-group {
-  margin-bottom: 1rem;
-}
-
-.form-group label {
-  display: block;
-  font-size: 0.8rem;
-  color: var(--text-main);
-  font-weight: 600;
-  margin-bottom: 0.3rem;
-}
-
-.form-control {
-  width: 100%;
-  padding: 0.7rem 0.85rem;
-  background: #08090d;
-  border: 1px solid var(--border-glass);
-  border-radius: 8px;
-  color: var(--text-main);
-  font-family: inherit;
-  font-size: 0.9rem;
-}
-
-.form-control:focus {
-  outline: none;
-  border-color: var(--gold-primary);
 }
 
 /* ==========================================================================
@@ -1513,7 +1414,7 @@ h1, h2, h3, h4, h5 {
     display: block;
   }
 
-  /* ELEGANT CLEAN MOBILE HERO (BREATHING ROOM & MAXIMUM CLARITY) */
+  /* ELEGANT CLEAN MOBILE HERO */
   .hero {
     min-height: 80vh;
     padding-top: 80px;
@@ -1584,6 +1485,14 @@ h1, h2, h3, h4, h5 {
     font-size: 0.9rem;
   }
 
+  .scenic-card {
+    padding: 1.6rem 1.2rem;
+  }
+
+  .delivery-scenic-box {
+    padding: 1.15rem 1rem;
+  }
+
   .scenic-actions {
     flex-direction: column;
   }
@@ -1595,13 +1504,26 @@ h1, h2, h3, h4, h5 {
   .footer-grid {
     grid-template-columns: 1fr;
   }
+}
 
-  .banner-content {
-    flex-direction: column;
-    text-align: center;
+/* NARROW MOBILE BREAKPOINT (<480px) FOR DELIVEROO & GLOVO BUTTONS */
+@media (max-width: 480px) {
+  .delivery-grid {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
   }
 
-  .banner-info {
-    flex-direction: column;
+  .delivery-btn {
+    padding: 0.75rem 0.85rem;
+    font-size: 0.88rem;
+  }
+
+  .hours-row {
+    padding: 0.75rem 0.85rem;
+  }
+
+  .time-badge {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.55rem;
   }
 }
